@@ -50,16 +50,11 @@ set shiftwidth=4               " 缩进宽度
 set ignorecase                 " 忽略大小写
 set smartcase                  " 智能大小写
 
-" ==== 折叠 ===================={{{
-set foldmethod=marker          " 根据标记{{{折叠}}}
+" ==== 折叠 ==================== <<
+set foldmarker=<<,>>           " 折叠标记为<<和>>
+set foldmethod=marker          " 根据标记折叠
 set foldlevelstart=99          " 打开文件时展开所有折叠
-let fortran_fold=1             " 启用Fortran语法折叠 program/module/subroutine/function
-let fortran_fold_conditionals=1 "启用条件分支折叠 if/select/do
-                               " 打开Fortran源码时还将自动设置:
-                               "   根据语法折叠
-                               "   折叠指示列宽
-                               " 相应内容在$VIM/vimfiles/filetype.vim
-                               " }}}
+                               " >>
 
 " ==== 映射 ====================
 let mapleader=','
@@ -67,16 +62,15 @@ inoremap <a-k> <up>
 inoremap <a-j> <down>
 inoremap <a-h> <left>
 inoremap <a-l> <right>
-nnoremap <leader>tt :call generalScript#test()<cr>
-nnoremap <leader>tr :call generalScript#trim()<cr>
-nnoremap <leader>tl :call generalScript#trimLine()<cr>
+nnoremap <leader>de d$
+" functions in vimfiles/autoload/general.vim
+nnoremap <leader>tt :call general#Test()<cr>
+nnoremap <leader>tr :call general#Trim()<cr>
+nnoremap <leader>tl :call general#TrimLine()<cr>
+" alternative Trim() and TrimLine()
 " nnoremap <leader>tr mxHmy:%s/\v\s+$//g<cr>`yzt`x
 " nnoremap <leader>tl mx0:s/\v\s+$/<cr>`x
-nnoremap <leader>de d$
-nnoremap <leader>mc :call melcorScript#melcorCount()<cr>
-nnoremap <leader>re /\v\*\*\*\*\*\*\*\*<cr>
-nnoremap <leader>sd :call simmerScript#simmerProcessData()<cr>
-nnoremap <leader>st :call simmerScript#simmerProcessText()<left>
+" set filetype
 nnoremap <leader>sm :setf melcor<cr>
 nnoremap <leader>sr :setf relap<cr>
 nnoremap <leader>ss :setf simmer<cr>

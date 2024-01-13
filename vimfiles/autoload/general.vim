@@ -1,10 +1,10 @@
 " General Function
 
-function generalScript#test()
+function general#Test()
 	echo 'Test.'
 endfunction
 
-function generalScript#trim()
+function general#Trim()
 	normal mxHmy
 	if search('\v\s+$') == 0
 		echo 'No trail.'
@@ -15,7 +15,7 @@ function generalScript#trim()
 	normal `yzt`x
 endfunction
 
-function generalScript#trimLine()
+function general#TrimLine()
 	normal mx0
 	if search('\v\s+$', 'c', line('.')) == 0
 		echo 'No trail.'
