@@ -134,6 +134,8 @@
 
 ==== 插件 ================================================================={{{
 
+*** 换用vim-plug了,Vundle不再使用
+
 1.配置Vundle
   * 克隆
     git clone https://github.com/VundleVim/Vundle.vim.git $VIM/vimfiles/bundle/Vundle.vim

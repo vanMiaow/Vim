@@ -7,15 +7,11 @@ source $VIMRUNTIME/vimrc_example.vim
 " 运行install.exe,仅安装选项14和15(添加右键菜单)
 
 " ==== 插件 ====================
-set nocompatible
-filetype off
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-call vundle#begin('$VIM/vimfiles/bundle')
-Plugin 'VundleVim/Vundle.vim'  " 插件管理器
-Plugin 'minibufexplorerpp'     " 缓冲区浏览器
-Plugin 'PProvost/vim-ps1'      " PowerShell语法
-call vundle#end()
-filetype plugin indent on
+call plug#begin('$VIM/vimfiles/bundle')
+Plug 'vim-scripts/minibufexplorerpp'    " 缓冲区浏览器
+Plug 'PProvost/vim-ps1'                 " PowerShell语法
+Plug '~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim' " lilypond.vim
+call plug#end()
 
 " ==== MiniBufExpl++ 设置 ======
 let g:miniBufExplorerMoreThanOne=0    " 启用MBE++窗口的最小缓冲区数量
