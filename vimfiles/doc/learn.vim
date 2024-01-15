@@ -116,7 +116,7 @@
 ==== 高亮 ================================================================={{{
 
 1.定义语法规则
-  在$VIMRUNTIME/syntax/下建立 语法规则.vim
+  在$VIM/vimfiles/syntax/下建立 语法规则.vim
   开头    " quit when a syntax file was already loaded
           if exists("b:current_syntax")
               finish
@@ -134,7 +134,8 @@
 
 ==== 插件 ================================================================={{{
 
-*** 换用vim-plug了,Vundle不再使用
+*** 换用vim-plug,Vundle不再使用
+*** vim-plug用法类似
 
 1.配置Vundle
   * 克隆

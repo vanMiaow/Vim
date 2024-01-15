@@ -2,4 +2,4 @@
 !/.gitignore
 !/_vimrc
 !/vimfiles/
-/vimfiles/bundle
+/vimfiles/plugged

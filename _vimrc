@@ -7,7 +7,7 @@ source $VIMRUNTIME/vimrc_example.vim
 " 运行install.exe,仅安装选项14和15(添加右键菜单)
 
 " ==== 插件 ====================
-call plug#begin('$VIM/vimfiles/bundle')
+call plug#begin('$VIM/vimfiles/plugged')
 Plug 'vim-scripts/minibufexplorerpp'    " 缓冲区浏览器
 Plug 'PProvost/vim-ps1'                 " PowerShell语法
 Plug '~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim' " lilypond.vim
@@ -22,7 +22,6 @@ let g:miniBufExplMapCTabSwitchBufs=1  " <Ctrl-Tab>和<Ctrl-Shift-Tab>切换缓�
 set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 " 该终端使用当前用户的(HKEY_CURRENT_USER)执行策略,而非默认作用域(HKEY_LOCAL_MACHINE)的执行策略
 " 注册表项位于计算机\HKEY_...\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell
-" PluginInstall只支持cmd终端,在安装新的插件之前需要先禁用PowerShell终端
 
 " ==== 语言 ====================
 let $LANG='zh_CN'              " 消息语言
@@ -51,8 +50,8 @@ set ignorecase                 " 忽略大小写
 set smartcase                  " 智能大小写
 
 " ==== 折叠 ==================== <<
-set foldmarker=<<,>>           " 折叠标记为<<和>>
 set foldmethod=marker          " 根据标记折叠
+set foldmarker=<<,>>           " 折叠标记为<<和>>
 set foldlevelstart=99          " 打开文件时展开所有折叠
                                " >>
 
@@ -66,14 +65,14 @@ nnoremap <leader>de d$
 " functions in vimfiles/autoload/general.vim
 nnoremap <leader>tt :call general#Test()<cr>
 nnoremap <leader>tr :call general#Trim()<cr>
-nnoremap <leader>tl :call general#TrimLine()<cr>
-" alternative Trim() and TrimLine()
+nnoremap <leader>tl :call general#Trim(line("."))<cr>
+" alternative Trim()
 " nnoremap <leader>tr mxHmy:%s/\v\s+$//g<cr>`yzt`x
 " nnoremap <leader>tl mx0:s/\v\s+$/<cr>`x
+nnoremap <leader>cn :call general#Count("#")<left><left>
+nnoremap <leader>cr :call general#CountReplace("#")<left><left>
 " set filetype
 nnoremap <leader>sm :setf melcor<cr>
-nnoremap <leader>sr :setf relap<cr>
-nnoremap <leader>ss :setf simmer<cr>
 
 " ==== 编辑 ====================
 set nobackup                   " 禁用备份文件
