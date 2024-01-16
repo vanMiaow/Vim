@@ -1,6 +1,6 @@
 vim9script
 
-def ValidateRange(
+export def ValidateRange(
 		range: list<number>
 	): list<number>
 	# validate given range to
@@ -31,7 +31,7 @@ def ValidateRange(
 	return range
 enddef
 
-def ProcessLines(
+export def ProcessLines(
 		Process: func(number): void,
 		pattern: string,
 		range:   list<number>
@@ -63,7 +63,7 @@ def ProcessLines(
 	return count
 enddef
 
-def RangeInfo(
+export def RangeInfo(
 		range: list<number>
 	): string
 	# generate info for given validated range
