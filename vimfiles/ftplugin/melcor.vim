@@ -1,5 +1,6 @@
 vim9script
 
+set listchars=tab:-->,trail:*
 nnoremap <leader>mc :call MelcorCount()<cr>
 
 def g:MelcorCount(): void
