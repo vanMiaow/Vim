@@ -4,10 +4,9 @@ set listchars=tab:-->,trail:*
 nnoremap <leader>mc :call MelcorCount()<cr>
 
 def g:MelcorCount(): void
-	# count CV, FL, HS
-	# append I##NUM if not given
-	# will remove comment
-	# ...
+	# count CV, FL, HS records
+	# if INUM missing, append as comment
+	# reserve original comment
 
 	# get line range of entire buffer
 	var range: list<number> = [0, 0]->general#ValidateRange()
