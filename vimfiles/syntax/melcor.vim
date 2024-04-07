@@ -27,6 +27,8 @@ highlight default link melcorStringR melcorString
 syntax match melcorComment "!.*" contains=melcorTodo
 syntax match melcorTodo display "#\w*" contained
 syntax match melcorTodo display "#\w*"
+syntax match melcorDefine "\v^#define.*"
+syntax match melcorDefine "__.*__"
 syntax match melcorProgram "\v^(END)?\s*PROGRAM\s+MEL(GEN|COR)"
 syntax match melcorCardName "\v^\w+_\w+"
 syntax match melcorInput "^\v\w+_INPUT"
@@ -38,6 +40,7 @@ syntax match melcorLineNumber "\v^\s+\d+"
 
 highlight melcorComment guifg=#808080
 highlight default link melcorTodo Todo
+highlight default link melcorDefine Comment
 highlight default link melcorProgram Underlined
 highlight default link melcorCardName Identifier
 highlight melcorInput guifg=#00BFFF

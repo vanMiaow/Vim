@@ -5,7 +5,7 @@ source $VIMRUNTIME/vimrc_example.vim
 
 # ==== 安装 ====================
 # 添加用户变量$VIM=...\Vim(不要引用其它用户变量)
-# 修改用户变量$Path+=%VIM%vim90
+# 修改用户变量$Path+=%VIM%\vim90
 # 运行install.exe,仅安装选项14和15(添加右键菜单)
 
 # ==== 插件 ====================
@@ -44,8 +44,10 @@ set list                       # 显示不可见字符
 set listchars=tab:\\\ ,trail:* # \t显示为\   ,行尾空格显示为*
 set tabstop=4                  # Tab宽度,\t的宽度
 set softtabstop=4              # SoftTab宽度,<Tab>或<BS>的宽度
-set noexpandtab                # 不以space取代tab
+set expandtab                  # 以space取代tab
 set shiftwidth=4               # 缩进宽度
+set autoindent                 # 自动缩进
+set smartindent                # 智能缩进
 
 # ==== 搜索 ====================
 set ignorecase                 # 忽略大小写
