@@ -28,7 +28,7 @@ syntax match melcorComment "!.*" contains=melcorTodo
 syntax match melcorTodo display "#\w*" contained
 syntax match melcorTodo display "#\w*"
 syntax match melcorDefine "\v^\s*#(include|define|undef|if|ifdef|ifndef|elif|else|endif).*"
-syntax match melcorDefine "__.*__"
+syntax match melcorDefine "\v<_\w+_>"
 syntax match melcorProgram "\v^(END)?\s*PROGRAM\s+MEL(GEN|COR)"
 syntax match melcorCardName "\v^\w+_\w+"
 syntax match melcorInput "^\v\w+_INPUT"
