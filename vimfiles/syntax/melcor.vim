@@ -25,9 +25,13 @@ highlight default link melcorStringR melcorString
 # end
 
 syntax match melcorComment "!.*" contains=melcorTodo
-syntax match melcorTodo display "#\w*" contained
-syntax match melcorTodo display "#\w*"
-syntax match melcorDefine "\v^\s*#(include|define|undef|if|ifdef|ifndef|elif|else|endif).*"
+syntax match melcorComment "//.*" contains=melcorTodo
+syntax match melcorTodo display "\v(^|[^#])\zs#\w+" contained
+syntax match melcorTodo display "\v(^|[^#])\zs#\w+"
+syntax match melcorDefine "\v^\s*#(include|define|undef|if|ifdef|ifndef|elif|else|endif).*$"
+syntax match melcorDefine "\v^\s*#(include|define|undef|if|ifdef|ifndef|elif|else|endif).*\\$" nextgroup=melcorDefine skipnl
+syntax match melcorDefine "\v.+$" contained
+syntax match melcorDefine "\v.+\\$" contained nextgroup=melcorDefine skipnl
 syntax match melcorDefine "\v<_\w+_>"
 syntax match melcorProgram "\v^(END)?\s*PROGRAM\s+MEL(GEN|COR)"
 syntax match melcorCardName "\v^\w+_\w+"
