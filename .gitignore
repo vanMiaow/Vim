@@ -2,4 +2,5 @@
 !/.gitignore
 !/_vimrc
 !/vimfiles/
+/vimfiles/autoload/plug.vim
 /vimfiles/plugged

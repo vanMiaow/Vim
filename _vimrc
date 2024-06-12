@@ -13,6 +13,7 @@ call plug#begin("$VIM/vimfiles/plugged")
 Plug "vim-scripts/minibufexplorerpp"    # 缓冲区浏览器
 Plug "PProvost/vim-ps1"                 # PowerShell语法
 Plug "~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim" # lilypond.vim
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} # markdown预览
 call plug#end()
 
 # ==== MiniBufExpl++ 设置 ======
@@ -21,7 +22,8 @@ g:miniBufExplMapWindowNavVim = 1    # <Ctrl-hjkl>切换窗口
 g:miniBufExplMapCTabSwitchBufs = 1  # <Ctrl-Tab>和<Ctrl-Shift-Tab>切换缓冲区
 
 # ==== 终端 ====================
-set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+# set shell="C:\Program\ Files\PowerShell\7\pwsh.exe"
+# set shell="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 # 该终端使用当前用户的(HKEY_CURRENT_USER)执行策略,而非默认作用域(HKEY_LOCAL_MACHINE)的执行策略
 # 注册表项位于计算机\HKEY_...\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell
 
