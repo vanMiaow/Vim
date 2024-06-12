@@ -28,15 +28,15 @@ syntax match melcorComment "!.*" contains=melcorTodo
 syntax match melcorComment "//.*" contains=melcorTodo
 syntax match melcorTodo display "\v(^|[^#])\zs#\w+" contained
 syntax match melcorTodo display "\v(^|[^#])\zs#\w+"
-syntax match melcorDefine "\v^\s*#(include|define|undef|if|ifdef|ifndef|elif|else|endif).*$"
-syntax match melcorDefine "\v^\s*#(include|define|undef|if|ifdef|ifndef|elif|else|endif).*\\$" nextgroup=melcorDefine skipnl
+syntax match melcorDefine "\v^\s*#(define|elif|else|endif|error|if|ifdef|ifndef|import|include|line|pragma|undef|using).*$"
+syntax match melcorDefine "\v^\s*#(define|elif|else|endif|error|if|ifdef|ifndef|import|include|line|pragma|undef|using).*\\$" nextgroup=melcorDefine skipnl
 syntax match melcorDefine "\v.+$" contained
 syntax match melcorDefine "\v.+\\$" contained nextgroup=melcorDefine skipnl
 syntax match melcorDefine "\v<_\w+_>"
 syntax match melcorProgram "\v^(END)?\s*PROGRAM\s+MEL(GEN|COR)"
-syntax match melcorCardName "\v^\w+_\w+"
-syntax match melcorInput "^\v\w+_INPUT"
-syntax match melcorID "^\v\w+_ID"
+syntax match melcorCardName "\v^\a+_\w+"
+syntax match melcorInput "^\v\a+_INPUT"
+syntax match melcorID "^\v\a+_ID"
 syntax match melcorExecTitle "EXEC_TITLE" nextgroup=melcorTitle skipwhite
 syntax region melcorTitle oneline start='"' end='"' contained
 syntax region melcorTitle oneline start="'" end="'" contained
