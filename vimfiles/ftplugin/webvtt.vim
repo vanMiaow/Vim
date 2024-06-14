@@ -1,6 +1,7 @@
 vim9script
 
-nnoremap <leader>vl : call VTT2LRC()<cr>
+# 快捷键: 转换格式
+nnoremap <leader>vl :call VTT2LRC()<cr>
 
 def g:VTT2LRC(): void
 	# convert WebVTT:

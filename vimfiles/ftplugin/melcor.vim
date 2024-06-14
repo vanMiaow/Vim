@@ -1,6 +1,6 @@
 vim9script
 
-set listchars=tab:-->,trail:*
+# 快捷键: 统计组件
 nnoremap <leader>mc :call MelcorCount()<cr>
 
 def g:MelcorCount(): void

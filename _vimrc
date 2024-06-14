@@ -12,8 +12,10 @@ source $VIMRUNTIME/vimrc_example.vim
 call plug#begin("$VIM/vimfiles/plugged")
 Plug "vim-scripts/minibufexplorerpp"    # 缓冲区浏览器
 Plug "PProvost/vim-ps1"                 # PowerShell语法
-Plug "~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim" # lilypond.vim
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} # markdown预览
+Plug "~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim"   # lilypond.vim
+Plug 'godlygeek/tabular'                # 自动对齐  :Tabularize
+Plug 'preservim/vim-markdown'           # Markdown语法
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}   # Markdown预览  :MarkdownPreviewToggle
 call plug#end()
 
 # ==== MiniBufExpl++ 设置 ======
@@ -28,7 +30,7 @@ g:miniBufExplMapCTabSwitchBufs = 1  # <Ctrl-Tab>和<Ctrl-Shift-Tab>切换缓冲�
 # 注册表项位于计算机\HKEY_...\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell
 
 # ==== 语言 ====================
-$LANG = "zh_CN"              # 消息语言
+$LANG = "zh_CN"                # 消息语言
 set langmenu=zh_CN             # 菜单语言
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
                                # 打开文件使用的编码
@@ -43,7 +45,10 @@ set guifont=courier_new:h13    # 字体
 set number                     # 显示行号
 set cursorline                 # 当前行高亮
 set list                       # 显示不可见字符
-set listchars=tab:\\\ ,trail:* # \t显示为\   ,行尾空格显示为*
+set listchars=tab:├─,leadmultispace:│\ \ \ ,trail:·
+                               # \t显示为├───,行首空格显示为│   ,行尾空格显示为·
+highlight SpecialKey guifg=#808080
+                               # 不可见字符颜色
 set tabstop=4                  # Tab宽度,\t的宽度
 set softtabstop=4              # SoftTab宽度,<Tab>或<BS>的宽度
 set expandtab                  # 以space取代tab
@@ -84,6 +89,7 @@ nnoremap <leader>cn :call general#Count("#")<left><left>
 nnoremap <leader>cr :call general#CountReplace("#")<left><left>
 # set filetype
 nnoremap <leader>sm :setfiletype melcor<cr>
+nnoremap <leader>sr :setfiletype relap<cr>
 
 # ==== 编辑 ====================
 set nobackup                   # 禁用备份文件
