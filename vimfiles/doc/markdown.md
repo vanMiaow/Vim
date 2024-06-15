@@ -109,6 +109,10 @@ https://github.com/vanMiaow
 
 [![vanMiaow](https://avatars.githubusercontent.com/u/16370370 "图片用法同链接，可以作为链接使用，标题优先级高于链接")][ref-title]
 
+    <img src= alt= title= width= height= />
+
+<img src="https://avatars.githubusercontent.com/u/16370370" title="也可通过html标签插入图片并设置大小" width="10%" />
+
     [^1]
     [^1]: footnote
 
