@@ -1,4 +1,40 @@
 
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    .toc {
+        float: right;
+        position: sticky;
+        top: 10px;
+        padding: 0px 5px;
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+    }
+    .table-of-contents {
+        visibility: hidden;
+        opacity: 0;
+        transition-duration: 0.5s;
+        position: absolute;
+        right: 0px;
+        width: max-content;
+        padding: 10px 10px 0px 0px;
+        background-color: var(--color-bg-primary);
+        border: 1px solid var(--color-border-primary);
+        border-radius: 3px;
+    }
+    .toc:hover .table-of-contents {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+<div class="toc">
+目录
+
+[toc]
+</div>
+
 `#` 或次行任意数量 `=`
 #       一级标题
 `##` 或次行任意数量 `-`
@@ -35,6 +71,13 @@
 支持语法高亮
 #pragma once
 ```
+
+行内 `$` 包围行内公式 $E=mc^{2}$
+
+行间 `$$` 包围行间公式
+$$
+E=mc^{2}
+$$
 
 `>`
 >   块引用

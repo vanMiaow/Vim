@@ -5,23 +5,35 @@ source $VIMRUNTIME/vimrc_example.vim
 
 # ==== 安装 ====================
 # 添加用户变量$VIM=...\Vim(不要引用其它用户变量)
-# 修改用户变量$Path+=%VIM%\vim90
-# 运行install.exe,仅安装选项14和15(添加右键菜单)
+# 修改用户变量$Path+=%VIM%\vim91
+# 以管理员身份运行install.exe,仅选中1(脚本)和14,15(右键)
+# 以管理员身份运行uninstall.exe卸载
 
 # ==== 插件 ====================
 call plug#begin("$VIM/vimfiles/plugged")
 Plug "vim-scripts/minibufexplorerpp"    # 缓冲区浏览器
-Plug "PProvost/vim-ps1"                 # PowerShell语法
-Plug "~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim"   # lilypond.vim
+Plug "ycm-core/YouCompleteMe"           # 自动补全
+Plug "jiangmiao/auto-pairs"             # 括号补全
+Plug "SirVer/UltiSnips"                 # snippet引擎
+Plug "honza/vim-snippets"               # snippet文件
 Plug 'godlygeek/tabular'                # 自动对齐  :Tabularize
+Plug "PProvost/vim-ps1"                 # PowerShell语法
 Plug 'preservim/vim-markdown'           # Markdown语法
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}   # Markdown预览  :MarkdownPreviewToggle
+Plug "~/OneDrive/Software/lilypond/lilypond-2.24.1/share/lilypond/2.24.1/vim"   # lilypond.vim
 call plug#end()
 
 # ==== MiniBufExpl++ 设置 ======
 g:miniBufExplorerMoreThanOne = 0    # 启用MBE++窗口的最小缓冲区数量
 g:miniBufExplMapWindowNavVim = 1    # <Ctrl-hjkl>切换窗口
 g:miniBufExplMapCTabSwitchBufs = 1  # <Ctrl-Tab>和<Ctrl-Shift-Tab>切换缓冲区
+
+# ==== YouCompleteMe 设置 ======
+g:ycm_key_list_select_completion = ["<down>"]   # <down>切换下一项,移除<tab>避免UltiSnips冲突
+
+# ==== UltiSnips 设置 ==========
+g:UltiSnipsExpandOrJumpTrigger = "<tab>"    # <tab>展开和向后跳转
+g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = $VIM .. "/vimfiles/ultisnips"  # 用户snippet文件位置
 
 # ==== 终端 ====================
 # set shell="C:\Program\ Files\PowerShell\7\pwsh.exe"

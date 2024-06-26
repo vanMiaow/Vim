@@ -3,4 +3,5 @@
 !/_vimrc
 !/vimfiles/
 /vimfiles/autoload/plug.vim
+/vimfiles/autoload/plug.vim.old
 /vimfiles/plugged

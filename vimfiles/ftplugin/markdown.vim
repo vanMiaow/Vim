@@ -6,5 +6,5 @@ set nowrap
 set conceallevel=2
 # 快捷键: 切换预览
 nnoremap <leader>mt :MarkdownPreviewToggle<cr>
-# 快捷键: 表格对齐
-nnoremap <leader>tt :Tabularize /\|<cr>
+# 快捷键: 表格格式化
+nnoremap <leader>tf :TableFormat<cr>

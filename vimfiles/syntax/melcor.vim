@@ -2,7 +2,7 @@ vim9script
 
 # quit when a syntax file was already loaded
 if ("b:current_syntax"->exists())
-	finish
+    finish
 endif
 
 syntax case ignore
