@@ -30,6 +30,23 @@ g:miniBufExplMapCTabSwitchBufs = 1  # <Ctrl-Tab>和<Ctrl-Shift-Tab>切换缓冲�
 
 # ==== YouCompleteMe 设置 ======
 g:ycm_key_list_select_completion = ["<down>"]   # <down>切换下一项,移除<tab>避免UltiSnips冲突
+g:ycm_filetype_whitelist = {        # 按文件类型启用
+    '*': 1,                         # 所有文件类型(默认)
+    'ycm_nofiletype': 1             # 增加无文件类型
+}
+g:ycm_filetype_blacklist = {        # 按文件类型禁用
+#   'tagbar': 1,                    # 移除所有默认
+#   'notes': 1,
+#   'markdown': 1,
+#   'netrw': 1,
+#   'unite': 1,
+#   'text': 1,
+#   'vimwiki': 1,
+#   'pandoc': 1,
+#   'infolog': 1,
+#   'leaderf': 1,
+#   'mail': 1
+}
 
 # ==== UltiSnips 设置 ==========
 g:UltiSnipsExpandOrJumpTrigger = "<tab>"    # <tab>展开和向后跳转
