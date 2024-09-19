@@ -74,8 +74,8 @@ set guifont=courier_new:h13    # 字体
 set number                     # 显示行号
 set cursorline                 # 当前行高亮
 set list                       # 显示不可见字符
-set listchars=tab:├─,leadmultispace:│\ \ \ ,trail:·
-                               # \t显示为├───,行首空格显示为│   ,行尾空格显示为·
+set listchars=tab:├─,leadmultispace:│\ \ \ ,trail:·,precedes:<,extends:>
+                               # \t显示为├───,行首空格显示为│   ,行尾空格显示为·,前略显示为<,后略显示为>
 highlight SpecialKey guifg=#808080
                                # 不可见字符颜色
 set tabstop=4                  # Tab宽度,\t的宽度

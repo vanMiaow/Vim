@@ -37,3 +37,40 @@ snippet toc "Table of Contents" b
 </div>
 endsnippet
 
+snippet br "break" i
+<br>
+endsnippet
+
+snippet em "em space" i
+&emsp;
+endsnippet
+
+snippet en "en space" i
+&ensp;
+endsnippet
+
+snippet tb "table" b
+<table><thead>
+    <tr>
+        <th>${1:header}</th>${2}
+    </tr>
+</thead><tbody>
+    <tr>
+        <td>${3:data}</td>${4}
+    </tr>${5}
+</tbody></table>
+endsnippet
+
+snippet tr "table row" b
+<tr>
+    ${1}
+</tr>
+endsnippet
+
+snippet th "table header" w
+<th>${1}</th>
+endsnippet
+
+snippet td "table data" w
+<td>${1}</td>
+endsnippet

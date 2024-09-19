@@ -40,7 +40,7 @@ syntax match melcorID "^\v\a+_ID"
 syntax match melcorExecTitle "EXEC_TITLE" nextgroup=melcorTitle skipwhite
 syntax region melcorTitle oneline start='"' end='"' contained
 syntax region melcorTitle oneline start="'" end="'" contained
-syntax match melcorLineNumber "\v^\s+\d+"
+syntax match melcorLineNumber "\v^\s*\d+"
 
 highlight melcorComment guifg=#808080
 highlight default link melcorTodo Todo
