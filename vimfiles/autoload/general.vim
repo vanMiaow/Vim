@@ -11,7 +11,7 @@ export def ValidateRange(
 
     # init range
     var rangeMin: number = 1
-    var rangeMax: number = line("$")
+    var rangeMax: number = line('$')
     # validate range
     if (range[0] < rangeMin || range[0] > rangeMax)
         # begin invalid, range is entire buffer
@@ -43,15 +43,15 @@ export def ProcessLines(
     # save current position
     var save_pos: dict<number> = winsaveview()
     # set cursor to begin line 1st column
-    [0, range[0], 1, 0, 0]->setpos(".")
+    [0, range[0], 1, 0, 0]->setpos('.')
     # in case there is a match at begin position
-    if (pattern->search("c", range[1]) != 0)
+    if (pattern->search('c', range[1]) != 0)
         # count up
         count += 1
         # process
         Process(count)
         # while there is a match between cursor and end
-        while (pattern->search("", range[1]) != 0)
+        while (pattern->search('', range[1]) != 0)
             # count up
             count += 1
             # process
@@ -69,11 +69,11 @@ export def RangeInfo(
     # generate info for given validated range
 
     # set range info
-    var info: string = "Line " .. range[0]
+    var info: string = 'Line ' .. range[0]
     if (range[1] != range[0])
-        info ..= " to " .. range[1]
+        info ..= ' to ' .. range[1]
     endif
-    info ..= ": "
+    info ..= ': '
     return info
 enddef
 
@@ -86,21 +86,21 @@ export def Trim(
     # validate range
     var range: list<number> = [lineFrom, lineTo]->ValidateRange()
     # process lines
-    var pattern: string = "\\v\\s+$"
-    var subs:    string = ""
+    var pattern: string = '\v\s+$'
+    var subs:    string = ''
     var count: number = (count: number): void => {
         # remove trail
-        getline(".")->substitute(pattern, subs, "")->setline(".")
+        getline('.')->substitute(pattern, subs, '')->setline('.')
         return
     }->ProcessLines(pattern, range)
     # print number of trail(s) removed
     var info: string = range->RangeInfo()
     if (count == 0)
-        info ..= "no trail."
+        info ..= 'no trail.'
     elseif (count == 1)
-        info ..= "1 line trimmed."
+        info ..= '1 line trimmed.'
     else
-        info ..= count .. " lines trimmed."
+        info ..= count .. ' lines trimmed.'
     endif
     echo info
     return
@@ -122,7 +122,7 @@ export def Count(
     }->ProcessLines(pattern, range)
     # print number of pattern(s) counted
     var info: string = range->RangeInfo()
-    info ..= count .. " " .. pattern .. " counted."
+    info ..= count .. ' ' .. pattern .. ' counted.'
     echo info
     return
 enddef
@@ -143,17 +143,17 @@ export def CountReplace(
     var t_diff: number = diff->type()
     if ((t_init != v:t_number && t_init != v:t_float) ||
         (t_diff != v:t_number && t_diff != v:t_float))
-        echo "Invalid type!"
+        echo 'Invalid type!'
         return
     endif
     # determin format for number or float
     var format: string
     if (t_init == v:t_number && t_diff == v:t_number)
         # if both init and diff are number, format is number
-        format = "%0d"
+        format = '%0d'
     else
         # otherwise format is float
-        format = "%G"
+        format = '%G'
     endif
     # 1st process: find maxLen of all expr
     var maxLen: number = 0
@@ -167,17 +167,17 @@ export def CountReplace(
     # 2nd process: replace pattern with formatted expr
     var count: number = (count: number): void => {
         # replace pattern with formatted expr
-        getline(".")->substitute(pattern, (init + (count - 1) * diff)->printf(format), "")->setline(".")
+        getline('.')->substitute(pattern, (init + (count - 1) * diff)->printf(format), '')->setline('.')
         return
     }->ProcessLines(pattern, range)
     # print number of pattern(s) counted and replaced
     var info: string = range->RangeInfo()
-    info ..= count .. " " .. pattern .. " counted and replaced."
+    info ..= count .. ' ' .. pattern .. ' counted and replaced.'
     echo info
     return
 enddef
 
 export def Test(): void
-    echo "Test."
+    echo 'Test.'
     return
 enddef

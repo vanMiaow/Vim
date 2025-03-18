@@ -12,12 +12,14 @@ def g:VTT2LRC(): void
     #   [TIME_STOP]
 
     # remove WEBVTT in first line
-    execute "silent :%s/^WEBVTT.*$//"
+    execute 'silent :%s/^WEBVTT.*$//'
     # convert WebVTT to Lyric
-    execute "silent :%s/\\v([0-9:.]+)\\s*--\\>\\s*([0-9:.]+)$\\n^(.+)$/[\\1]\\3\\r[\\2]"
+    execute 'silent :%s/\v([0-9:.]+)\s*--\>\s*([0-9:.]+)$\n^(.+)$/[\1]\3\r[\2]/'
     # remove blank lines
-    execute "silent :%s/^$\\n//"
+    execute 'silent :%s/^$\n//'
+    # remove numbers
+    execute 'silent :%s/^\d\+$//'
     # save file
-    execute "w"
+    execute 'w'
     return
 enddef

@@ -1,5 +1,5 @@
 
-snippet toc "Table of Contents" b
+snippet toc "Table Of Contents" b
 <style>
     html {
         scroll-behavior: smooth;
@@ -37,19 +37,21 @@ snippet toc "Table of Contents" b
 </div>
 endsnippet
 
-snippet br "break" i
-<br>
+snippet details "Details" b
+<details${1: open}><summary style="color: var(--color-text-tertiary); font-weight: bold;">${2:summary}</summary>
+${3:details}
+</details>
 endsnippet
 
-snippet em "em space" i
-&emsp;
+snippet ! "Image" b
+![${1:alt}]($0)
 endsnippet
 
-snippet en "en space" i
-&ensp;
+snippet img "Image" b
+<img alt="${1:alt}" width=${2:49}% src="$0">
 endsnippet
 
-snippet tb "table" b
+snippet tb "Table" b
 <table><thead>
     <tr>
         <th>${1:header}</th>${2}
@@ -61,16 +63,106 @@ snippet tb "table" b
 </tbody></table>
 endsnippet
 
-snippet tr "table row" b
+snippet tr "Table Row" b
 <tr>
     ${1}
 </tr>
 endsnippet
 
-snippet th "table header" w
+snippet th "Table Header" w
 <th>${1}</th>
 endsnippet
 
-snippet td "table data" w
+snippet td "Table Data" w
 <td>${1}</td>
 endsnippet
+
+snippet ^ "Superscript" i
+<sup>${1:${VISUAL}}</sup>
+endsnippet
+
+snippet _ "Subscript" i
+<sub>${1:${VISUAL}}</sub>
+endsnippet
+
+snippet br "break" i
+<br>
+endsnippet
+
+snippet em "Em Space" i
+&emsp;
+endsnippet
+
+snippet en "En Space" i
+&ensp;
+endsnippet
+
+snippet mermaid "Mermaid.js" b
+\`\`\`mermaid
+flowchart LR
+    $0
+\`\`\`
+endsnippet
+
+snippet chart "Chart.js" b
+\`\`\`chart
+{
+    "type": "scatter",
+    "data": {
+        "datasets": [
+            {
+                "label": "${1:label}",
+                "data": [
+                    { "x": 0$0, "y": 0 },
+                    { "x": 1, "y": 1 }
+                ],
+                "showLine": ${2:true},
+                "fill": ${3:false},
+                "pointRadius": ${4:3},
+                "borderWidth": ${5:3},
+                "tension": 0
+            }
+        ]
+    },
+    "options": {
+        "scales": {
+            "xAxes": [{
+                "scaleLabel": {
+                    "display": true,
+                    "labelString": "${6:Time} (${7:s})"
+                },
+                "ticks": { "min": 0, "max": 1 }
+            }],
+            "yAxes": [{
+                "scaleLabel": {
+                    "display": true,
+                    "labelString": "${8:Title} (${9:unit})"
+                },
+                "ticks": { "min": 0, "max": 1 }
+            }]
+        }
+    }
+}
+\`\`\`
+endsnippet
+
+snippet ~~ "Delete" w
+~~${1:${VISUAL}}~~
+endsnippet
+
+snippet ` "Code" w
+\`${1:${VISUAL}}
+endsnippet
+
+snippet $ "LaTeX" w
+$${1:${VISUAL}}$
+endsnippet
+
+snippet "\\[dtc]?frac" "LaTeX Fraction" ir
+`!p snip.rv = match.group(0)`{$1}{$2}
+endsnippet
+
+snippet \begin "LaTeX Begin-End Pair" i
+\begin{$1}$0\end{$1}
+endsnippet
+
