@@ -158,11 +158,33 @@ snippet $ "LaTeX" w
 $${1:${VISUAL}}$
 endsnippet
 
-snippet "\\[dtc]?frac" "LaTeX Fraction" ir
+snippet "\\[dtc]?frac" "LaTeX Fraction" wr
 `!p snip.rv = match.group(0)`{$1}{$2}
 endsnippet
 
-snippet \begin "LaTeX Begin-End Pair" i
-\begin{$1}$0\end{$1}
+snippet \begin "LaTeX Begin-End Pair" ws
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+snippet \left "LaTeX Left-Right Pair" w
+\left$1 $3 \right$2
+endsnippet
+
+snippet "\\(\(|\[|\{|\|)" "LeTeX Left-Right Pair" wr
+\left`!p snip.rv = match[1]` $1 \right`!p
+match match[1]:
+    case "(":
+        snip.rv = ")"
+    case "[":
+        snip.rv = "]"
+    case "{":
+        snip.rv = "}"
+    case "|":
+        snip.rv = "|"
+    case _:
+        snip.rv = "."
+`
 endsnippet
 

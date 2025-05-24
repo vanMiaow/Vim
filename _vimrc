@@ -38,18 +38,18 @@ g:ycm_filetype_whitelist = {        # 按文件类型启用
     '*': 1,                         # 所有文件类型(默认)
     'ycm_nofiletype': 1             # 增加无文件类型
 }
-g:ycm_filetype_blacklist = {        # 按文件类型禁用
-#   'tagbar': 1,                    # 移除所有默认
-#   'notes': 1,
-#   'markdown': 1,
-#   'netrw': 1,
-#   'unite': 1,
-#   'text': 1,
-#   'vimwiki': 1,
-#   'pandoc': 1,
-#   'infolog': 1,
-#   'leaderf': 1,
-#   'mail': 1
+g:ycm_filetype_blacklist = {        # 按文件类型禁用(默认)
+    'tagbar': 1,
+    'notes': 1,
+    'markdown': 1,
+    'netrw': 1,
+    'unite': 1,
+    'text': 1,
+    'vimwiki': 1,
+    'pandoc': 1,
+    'infolog': 1,
+    'leaderf': 1,
+    'mail': 1
 }
 
 # ==== UltiSnips 设置 ==========

@@ -42,7 +42,7 @@ try:    snip.rv = "0.0" if float(t[2]) < 0 else "#TIME"
 except: snip.rv = "#TIME"
                      `}  ${10:$4}  ${11:$5}  ${12:$6}  ${13:$7}  ${14:$8}
 EXEC_TEND     ${15:#TEND}
-EXEC_CPULIM   ${16:3600.0}
+EXEC_CPULIM   ${16:86400.0}
 EXEC_CPULEFT  60.0
 
 END PROGRAM MELCOR
